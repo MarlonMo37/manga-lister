@@ -8,11 +8,14 @@ import thunk from 'redux-thunk'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
+import mangaReducer from './actions/mangaAction'
+
+// const store = createStore(mangaReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
