@@ -2,8 +2,15 @@
 import '../App.css';
 
 import React, { Component } from "react"
+import { connect } from 'react-redux'
+import { fetchMangas } from '../actions/mangaActions'
 
-class  App extends Component {
+class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchMangas()
+  }
+
   render() {
     return (
       <div className="App">
@@ -26,4 +33,11 @@ class  App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    mangas: state.mangas,
+    loading: state.loading
+  }
+}
+
+export default connect(mapStateToProps, {fetchMangas})(App);
