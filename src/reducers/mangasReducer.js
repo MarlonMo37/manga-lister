@@ -1,6 +1,6 @@
 import uuid from "uuid" 
 
-const mangasReducer = (state = {}, action) {
+const mangasReducer = (state = {}, action) => {
     switch(action.type) {
         case 'LOADING_MANGAS':
             return {

@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import mangaReducer from './actions/mangaAction'
+import mangaReducer from './reducers/mangasReducer'
 
 // const store = createStore(mangaReducer, applyMiddleware(thunk))
 
