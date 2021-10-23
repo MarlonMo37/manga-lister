@@ -4,11 +4,13 @@ import '../App.css';
 import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { fetchMangas } from '../actions/mangaActions'
+import { fetchGenres } from '../actions/genreActions'
 
 class App extends Component {
 
   componentDidMount() {
     this.props.fetchMangas()
+    this.props.fetchGenres()
   }
 
   render() {
@@ -36,8 +38,10 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     mangas: state.mangas,
-    loading: state.loading
+    manga_loading: state.manga_loading,
+    genres: state.genres,
+    genre_loading: state.genre_loading
   }
 }
 
-export default connect(mapStateToProps, {fetchMangas})(App);
+export default connect(mapStateToProps, {fetchMangas, fetchGenres})(App);
