@@ -3,15 +3,21 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux' 
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import mangaReducer from './reducers/mangasReducer'
+import mangasReducer from './reducers/mangasReducer'
+import genresReducer from './reducers/genresReducer'
 
-const store = createStore(mangaReducer,composeWithDevTools(applyMiddleware(thunk)))
+const rootReducer = combineReducers({
+  mangas: mangasReducer,
+  genres: genresReducer
+})
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
