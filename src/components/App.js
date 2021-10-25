@@ -5,6 +5,7 @@ import React, { Component } from "react"
 import { connect } from 'react-redux'
 import { fetchMangas } from '../actions/mangaActions'
 import { fetchGenres } from '../actions/genreActions'
+import MangaList from './MangaList'
 
 class App extends Component {
 
@@ -13,12 +14,20 @@ class App extends Component {
     this.props.fetchGenres()
   }
 
+  handleLoading = () => {
+    if(this.props.manga_loading) {
+      return <div>Loading...</div>
+    } else {
+      return <MangaList mangas={this.props.manga_selection} />
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            {this.handleLoading()}
           </p>
           <a
             className="App-link"

@@ -1,7 +1,14 @@
-import React from "react"
+import React, {Component} from "react"
 
-const Manga = ({ name }) => {
-    <div>
-        <p1>{name}</p1>
-    </div>
+class Manga extends Component {
+
+    render() {
+        return(
+            <div>
+                <p1>{this.props.name}</p1>
+            </div>
+        )
+    }
 }
+
+export default Manga

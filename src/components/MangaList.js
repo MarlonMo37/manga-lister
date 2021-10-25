@@ -1,12 +1,19 @@
-import React from "react"
-import Manga from "/.Manga"
+import React, {Component} from "react"
+import Manga from "./Manga"
 
-const MangaList = ({mangas}) => (
-    <div>
-        {mangas.map((manga) => (
-            <Manga />
-        ))}
-    </div>
-)
+class MangaList extends Component {
+
+    listMangas = () => {
+        return this.props.mangas.mangas.map( manga => <Manga name={manga.name}/>)
+    }
+
+    render() {
+        return (
+            <div>
+                {this.listMangas()}
+            </div>
+        )
+    }
+}
 
 export default MangaList
