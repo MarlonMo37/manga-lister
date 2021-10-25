@@ -9,7 +9,6 @@ import { fetchGenres } from '../actions/genreActions'
 class App extends Component {
 
   componentDidMount() {
-    debugger
     this.props.fetchMangas()
     this.props.fetchGenres()
   }
@@ -18,7 +17,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
