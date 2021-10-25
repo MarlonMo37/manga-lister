@@ -9,6 +9,7 @@ import { fetchGenres } from '../actions/genreActions'
 class App extends Component {
 
   componentDidMount() {
+    debugger
     this.props.fetchMangas()
     this.props.fetchGenres()
   }
@@ -37,9 +38,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    mangas: state.mangas,
+    manga_selection: state.mangas,
     manga_loading: state.manga_loading,
-    genres: state.genres,
+    genre_selection: state.genres,
     genre_loading: state.genre_loading
   }
 }
