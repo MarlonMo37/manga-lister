@@ -4,7 +4,7 @@ import Genre from "./Genre"
 class GenreList extends Component {
     
     listGenres = () => {
-        return this.props.genres.genres.map( manga => <Genre name={manga.name} />)
+        return this.props.genres.map( manga => <Genre name={manga.name} />)
     }
 
     render() {

@@ -34,7 +34,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/mangas" render={routerProps => <MangaList {...routerProps} mangas={this.props.manga_selection}/>} />
-            <Route path="/genres" render={routerProps => <GenreList {...routerProps} genres ={this.props.genre_selection}/>} />
+            <Route path="/genres" render={routerProps => <GenreList {...routerProps} genres={this.props.genre_selection}/>} />
           </Switch>
         </Router>
       </div>
@@ -44,10 +44,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    manga_selection: state.mangas,
-    manga_loading: state.manga_loading,
-    genre_selection: state.genres,
-    genre_loading: state.genre_loading
+    manga_selection: state.mangas.mangas,
+    manga_loading: state.mangas.manga_loading,
+    genre_selection: state.genres.genres,
+    genre_loading: state.genres.genre_loading
   }
 }
 
