@@ -1,17 +1,16 @@
 import React, {Component} from "react"
-import { Container } from "react-bootstrap"
+// import { Container } from "react-bootstrap"
+import { NavLink } from "react-router-dom"
 
 class Navbar extends Component {
 
 
     render() {
         return (
-            <Navbar>
-                <Container>
-                    <Navbar.Brand href="">Manga Lister</Navbar.Brand>
-                    
-                </Container>
-            </Navbar>
+            <div>
+                <NavLink to="/" >Home</NavLink>
+                <NavLink to="/mangas">Mangas</NavLink>
+            </div>
         )
     }
 }

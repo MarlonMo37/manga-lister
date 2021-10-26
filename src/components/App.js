@@ -3,9 +3,11 @@ import '../App.css';
 
 import React, { Component } from "react"
 import { connect } from 'react-redux'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { fetchMangas } from '../actions/mangaActions'
 import { fetchGenres } from '../actions/genreActions'
 import MangaList from './MangaList'
+import Navbar from "./Navbar"
 
 class App extends Component {
 
@@ -14,18 +16,23 @@ class App extends Component {
     this.props.fetchGenres()
   }
 
-  handleLoading = () => {
-    if(this.props.manga_loading) {
-      return <div>Loading...</div>
-    } else {
-      return <MangaList mangas={this.props.manga_selection} />
-    }
-  }
+  // handleLoading = () => {
+  //   if(this.props.manga_loading) {
+  //     return <div>Loading...</div>
+  //   } else {
+  //     return <MangaList mangas={this.props.manga_selection} />
+  //   }
+  // }
 
   render() {
     return (
       <div className="App">
-            {this.handleLoading()}
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/mangas" render={routerProps => <MangaList {...routerProps} mangas={this.props.manga_selection}/>} />
+          </Switch>
+        </Router>
       </div>
     )
   }
