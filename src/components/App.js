@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { fetchMangas } from '../actions/mangaActions'
 import { fetchGenres } from '../actions/genreActions'
 import MangaList from './MangaList'
+import Home from "./Home"
 import Navbar from "./Navbar"
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
         <Router>
           <Navbar />
           <Switch>
+            <Route exact path="/" component={Home} />
             <Route path="/mangas" render={routerProps => <MangaList {...routerProps} mangas={this.props.manga_selection}/>} />
           </Switch>
         </Router>
