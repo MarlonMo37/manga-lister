@@ -10,6 +10,7 @@ class Navbar extends Component {
             <div>
                 <NavLink to="/" >Home</NavLink>
                 <NavLink to="/mangas">Mangas</NavLink>
+                <NavLink to="/genres">Genres</NavLink>
             </div>
         )
     }

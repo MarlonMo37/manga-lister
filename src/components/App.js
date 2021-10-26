@@ -33,6 +33,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/mangas" render={routerProps => <MangaList {...routerProps} mangas={this.props.manga_selection}/>} />
+            <Route path="/genres" render={routerProps => <GenreList {...routerProps} genres ={this.props.genre_selection}/>} />
           </Switch>
         </Router>
       </div>
