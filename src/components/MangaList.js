@@ -6,8 +6,6 @@ import { Link } from "react-router-dom"
 class MangaList extends Component {
 
     listMangas = () => {
-        // debugger
-
         let url = ""
 
         if (this.props.url.includes("/genres")) {

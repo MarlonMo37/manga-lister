@@ -8,6 +8,7 @@ import { fetchMangas } from '../actions/mangaActions'
 import { fetchGenres } from '../actions/genreActions'
 import MangaPage from './MangaPage'
 import GenrePage from './GenrePage'
+import ListPage from './ListPage'
 import Home from "./Home"
 import Navbar from "./Navbar"
 
@@ -18,6 +19,7 @@ class App extends Component {
     this.props.fetchGenres()
   }
 
+
   render() {
     return (
       <div className="App">
@@ -27,6 +29,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/mangas" render={routerProps => <MangaPage {...routerProps} mangas={this.props.manga_selection}/>} />
             <Route path="/genres" render={routerProps => <GenrePage {...routerProps} genres={this.props.genre_selection}/>} />
+            <Route path="/your_list" render={routerProps => <ListPage {...routerProps} list={this.props.manga_selection}/>} />
           </Switch>
         </Router>
       </div>
