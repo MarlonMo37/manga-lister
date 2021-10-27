@@ -1,24 +1,25 @@
 import React, {Component} from "react"
 import { Link } from "react-router-dom"
-import Genre from "./Genre"
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 class GenreList extends Component {
     
     listGenres = () => {
         return Object.keys(this.props.genres).map((genreID) => (
-            <>
+            <Col>
                 <Link key={genreID} to={`/genres/${genreID}`}>
-                    <h1>{this.props.genres[genreID].name}</h1>
+                    {this.props.genres[genreID].name}
                 </Link>
-            </>
+            </Col>
         ))
     }
 
     render() {
         return (
-            <div>
+            <Row>
                 {this.listGenres()}
-            </div>
+            </Row>
         )
     }
 }
