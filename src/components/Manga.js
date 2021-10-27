@@ -5,7 +5,11 @@ import Row from 'react-bootstrap/Row'
 class Manga extends Component {
 
     current_manga = () => {
+        if (this.props.mangas.mangas) {
+            return (this.props.mangas.mangas[this.props.match.params.mangaId])
+        } else {
             return (this.props.mangas[this.props.match.params.mangaId])
+        }
     }
 
     render() {
