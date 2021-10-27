@@ -7,7 +7,7 @@ const GenrePage = ({ match, genres }) => {
     <div>
         <Route exact path={match.url} render={() => <h3>Choose a genre from the list below</h3>}/>
         <Route path={`${match.url}/:genreId`} render={(routerProps) => <Genre {...routerProps} genres={genres} />}/>
-        <MangaList url={match.url} genres={genres} />
+        <GenreList url={match.url} genres={genres} />
     </div>
 }
 

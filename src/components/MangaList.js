@@ -12,7 +12,6 @@ class MangaList extends Component {
                     <img src={this.props.mangas[mangaID].image_url} width="130" />
                 </Link>
             </>
-            
         ))
     }
 
