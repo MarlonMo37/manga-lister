@@ -18,14 +18,6 @@ class App extends Component {
     this.props.fetchGenres()
   }
 
-  // handleLoading = () => {
-  //   if(this.props.manga_loading) {
-  //     return <div>Loading...</div>
-  //   } else {
-  //     return <MangaList mangas={this.props.manga_selection} />
-  //   }
-  // }
-
   render() {
     return (
       <div className="App">
