@@ -7,7 +7,6 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { fetchMangas } from '../actions/mangaActions'
 import { fetchGenres } from '../actions/genreActions'
 import MangaPage from './MangaPage'
-// import MangaList from './MangaList'
 import GenreList from './GenreList'
 import Home from "./Home"
 import Navbar from "./Navbar"
