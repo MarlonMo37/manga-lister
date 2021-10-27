@@ -6,7 +6,8 @@ import { connect } from 'react-redux'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { fetchMangas } from '../actions/mangaActions'
 import { fetchGenres } from '../actions/genreActions'
-import MangaList from './MangaList'
+import MangaPage from './MangaPage'
+// import MangaList from './MangaList'
 import GenreList from './GenreList'
 import Home from "./Home"
 import Navbar from "./Navbar"
@@ -33,7 +34,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/mangas" render={routerProps => <MangaList {...routerProps} mangas={this.props.manga_selection}/>} />
+            <Route path="/mangas" render={routerProps => <MangaPage {...routerProps} mangas={this.props.manga_selection}/>} />
             <Route path="/genres" render={routerProps => <GenreList {...routerProps} genres={this.props.genre_selection}/>} />
           </Switch>
         </Router>
