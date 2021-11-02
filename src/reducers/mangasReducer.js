@@ -14,6 +14,12 @@ const mangasReducer = (state = { mangas: [], manga_loading: false }, action) => 
                 mangas: action.mangas, 
                 manga_loading: false
             }
+        case 'CHANGE_LISTING':
+            const newManga = [...state.mangas]
+            return {
+                ...state,
+                mangas: newManga
+            }
         default:
             return state
     }

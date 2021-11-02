@@ -23,8 +23,6 @@ export const patchManga = (manga) => {
             body: JSON.stringify(data)
         })
         .then(resp => resp.json())
-        .then(respJSON => {
-            dispatch({ type: 'CHANGE_LISTING', payload: respJSON })
-        })
+        .then(respJSON => {debugger})
     }
 }
