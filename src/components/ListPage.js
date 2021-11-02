@@ -1,10 +1,23 @@
 import React, {Component} from "react"
-import MangaList from './MangaList'
+import Manga from './Manga'
+import ListManga from './ListManga'
+import { Route } from 'react-router-dom'
 
-const ListPage = ({ match, list }) => {
-    <div>
-        <MangaList url={match.url} mangas={list} />
-    </div>
+
+class ListPage extends Component {
+
+    showMangas = () => {
+        return this.props.list.map(manga => <ListManga manga={manga} />)
+    }
+
+    render() {
+        return(
+            <div>
+                {this.showMangas()}
+            </div>
+        )
+    }
+    
 }
 
 export default ListPage

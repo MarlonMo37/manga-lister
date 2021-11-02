@@ -23,7 +23,6 @@ class Manga extends Component {
     }
 
     url_button = () => {
-        // debugger
         if (this.props.match.url.includes("genres") === false) {
             return this.list_button()
         }
