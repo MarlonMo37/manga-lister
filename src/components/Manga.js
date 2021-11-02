@@ -16,7 +16,6 @@ class Manga extends Component {
 
     list_button = () => {
         if (this.current_manga().listed === false) {
-            debugger
             return "Add to Your List"
         } else {
             return "Remove from your list"
@@ -24,7 +23,6 @@ class Manga extends Component {
     }
 
     render() {
-        // debugger
         return(
             <div >
                     <Row>

@@ -15,10 +15,17 @@ const mangasReducer = (state = { mangas: [], manga_loading: false }, action) => 
                 manga_loading: false
             }
         case 'CHANGE_LISTING':
-            const newManga = [...state.mangas]
+            let newMangas = [...state.mangas]
+            let manga = newMangas.find(manga => manga.id === action.payload.id)
+            manga.listed = action.payload.listed
+            newMangas[manga.id - 1] = manga
+
+            // debugger
+            // newManga[action.payload]
+
             return {
                 ...state,
-                mangas: newManga
+                mangas: newMangas
             }
         default:
             return state
