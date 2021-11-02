@@ -4,11 +4,28 @@ import Row from 'react-bootstrap/Row'
 import { Link } from "react-router-dom"
 import { Route } from 'react-router-dom'
 import ReviewForm from './ReviewForm'
+import { patchManga } from '../actions/listActions'
+import { connect } from 'react-redux'
 
 class ListManga extends Component {
 
+    renderButton = (manga) => {
+
+        if (manga.reviews.length === 0) {
+            return(
+                <Link key={this.props.manga.id} to={`/your_list/${this.props.manga.id}`}>
+                    <button>Write Review</button>
+                </Link>)
+        } else {
+            return(
+                <Link key={this.props.manga.id} to={`/your_list/${this.props.manga.id}/edit`}>
+                    <button>Edit Review</button>
+                </Link>
+            )
+        }
+    }
+
     render() {
-        // debugger
         return(
             <div >
                 <Row>
@@ -23,10 +40,10 @@ class ListManga extends Component {
 
                         
                         <button>Remove Manga</button>
-                        <Link key={this.props.manga.id} to={`/your_list/${this.props.manga.id}`}>
-                            <button>Write Review</button>
-                        </Link>
+                        {this.renderButton(this.props.manga)}
+                        
                         <Route path={`/your_list/${this.props.manga.id}`} render={(routerProps) => <ReviewForm {...routerProps} manga={this.props.manga} />}/>
+                        <Route path={`/your_list/${this.props.manga.id}/edit`} render={(routerProps) => <ReviewForm {...routerProps} manga={this.props.manga} />}/>
                         
                         
                     </Col>
@@ -37,4 +54,4 @@ class ListManga extends Component {
 
 }
 
-export default ListManga
+export default connect(null, { patchManga })(ListManga)
