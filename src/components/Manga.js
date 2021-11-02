@@ -14,6 +14,14 @@ class Manga extends Component {
         }
     }
 
+    list_button = () => {
+        if (this.current_manga().listed === true) {
+            return "Add to Your List"
+        } else {
+            return "Remove from your list"
+        }
+    }
+
     render() {
         // debugger
         return(
@@ -27,7 +35,7 @@ class Manga extends Component {
                                 <Col><h4>Date Start: {this.current_manga().date_end}</h4></Col>
                             </Row>
                             <h5>{this.current_manga().synopsis}</h5>
-                            <button className="add=btn" onClick={() => this.props.patchManga(this.current_manga())}>Add to Your List</button>
+                            <button className="add=btn" onClick={() => this.props.patchManga(this.current_manga())}>{this.list_button}</button>
                         </Col>
                     </Row>
             </div>

@@ -1,9 +1,15 @@
 export const patchManga = (manga) => {
     
+    let changeList = ""
     // e.preventDefault()
+    if (manga.listed === false) {
+        changeList = true
+    } else {
+        changeList = false
+    }
     
     const data = {
-        listed: manga.listed,
+        listed: changeList,
         id: manga.id 
     }
     debugger
