@@ -1,6 +1,8 @@
 import React, {Component} from "react"
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import { patchManga } from '../actions/listActions'
+import { connect } from 'react-redux'
 
 class Manga extends Component {
 
@@ -13,8 +15,9 @@ class Manga extends Component {
     }
 
     render() {
+        // debugger
         return(
-            <div>
+            <div >
                     <Row>
                         <Col><img src={this.current_manga().image_url} width="300"/><h2>{this.current_manga().name}</h2></Col>
                         <Col>
@@ -24,6 +27,7 @@ class Manga extends Component {
                                 <Col><h4>Date Start: {this.current_manga().date_end}</h4></Col>
                             </Row>
                             <h5>{this.current_manga().synopsis}</h5>
+                            <button className="add=btn" onClick={() => this.props.patchManga(this.current_manga())}>Add to Your List</button>
                         </Col>
                     </Row>
             </div>
@@ -31,4 +35,4 @@ class Manga extends Component {
     }
 }
 
-export default Manga
+export default connect(null, { patchManga })(Manga)
