@@ -1,6 +1,8 @@
 import React, {Component} from "react"
 
-const ListPage = ({ match, mangas }) => {
+const ListPage = ({ match, list }) => {
+
+    debugger
 
 }
 
