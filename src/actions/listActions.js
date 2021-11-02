@@ -1,7 +1,7 @@
 export const patchManga = (manga) => {
     
     let changeList = ""
-
+    debugger
     if (manga.listed === false) {
         changeList = true
     } else {

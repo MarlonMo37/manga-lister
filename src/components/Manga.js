@@ -16,9 +16,16 @@ class Manga extends Component {
 
     list_button = () => {
         if (this.current_manga().listed === false) {
-            return "Add to Your List"
+            return <button className="add=btn" onClick={() => this.props.patchManga(this.current_manga())}>Add To Your List</button>
         } else {
-            return "Remove from your list"
+            return <button className="add=btn" onClick={() => this.props.patchManga(this.current_manga())}>Remove From Your List</button>
+        }
+    }
+
+    url_button = () => {
+        // debugger
+        if (this.props.match.url.includes("genres") === false) {
+            return this.list_button()
         }
     }
 
@@ -34,7 +41,7 @@ class Manga extends Component {
                                 <Col><h4>Date Start: {this.current_manga().date_end}</h4></Col>
                             </Row>
                             <h5>{this.current_manga().synopsis}</h5>
-                            <button className="add=btn" onClick={() => this.props.patchManga(this.current_manga())}>{this.list_button()}</button>
+                            {this.url_button()}
                         </Col>
                     </Row>
             </div>
