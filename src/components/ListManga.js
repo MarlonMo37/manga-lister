@@ -12,7 +12,7 @@ class ListManga extends Component {
     renderButton = (manga) => {
         return(
             <Link key={this.props.manga.id} to={`/your_list/${this.props.manga.id}`}>
-                <button>Write Review</button>
+                <button>Write/Edit Review</button>
             </Link>)
     }
 
@@ -30,13 +30,8 @@ class ListManga extends Component {
                         <h5>{this.props.manga.synopsis}</h5>
 
                         <button onClick={() => this.props.patchManga(this.props.manga)}>Remove Manga</button>
-                        {this.renderButton(this.props.manga)}
-
-
-                        
-                        
+                        {this.renderButton(this.props.manga)} 
                         <Route path={`/your_list/${this.props.manga.id}`} render={(routerProps) => <ReviewForm {...routerProps} manga={this.props.manga} />}/>
-                        <Route path={`/your_list/${this.props.manga.id}/edit`} render={(routerProps) => <ReviewForm {...routerProps} manga={this.props.manga} />}/>
                         
                         
                     </Col>

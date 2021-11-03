@@ -37,7 +37,6 @@ class ReviewForm extends Component {
     }
 
     renderButton = () => {
-        // debugger
         if (this.showReview()) {
             return(
                  <div>
