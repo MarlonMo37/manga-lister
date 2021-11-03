@@ -8,7 +8,7 @@ class GenreList extends Component {
     listGenres = () => {
         return Object.keys(this.props.genres).map((genreID) => (
             <Col>
-                <Link key={genreID} to={`/genres/${genreID}`}>
+                <Link key={genreID} to={`/genres/${genreID}`} style={{color: 'black', textDecoration: 'none'}}>
                     {this.props.genres[genreID].name}
                 </Link>
             </Col>
