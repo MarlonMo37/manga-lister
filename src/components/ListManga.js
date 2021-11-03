@@ -10,19 +10,10 @@ import { connect } from 'react-redux'
 class ListManga extends Component {
 
     renderButton = (manga) => {
-
-        if (manga.reviews.length === 0) {
-            return(
-                <Link key={this.props.manga.id} to={`/your_list/${this.props.manga.id}`}>
-                    <button>Write Review</button>
-                </Link>)
-        } else {
-            return(
-                <Link key={this.props.manga.id} to={`/your_list/${this.props.manga.id}/edit`}>
-                    <button>Edit Review</button>
-                </Link>
-            )
-        }
+        return(
+            <Link key={this.props.manga.id} to={`/your_list/${this.props.manga.id}`}>
+                <button>Write Review</button>
+            </Link>)
     }
 
     render() {
@@ -34,13 +25,15 @@ class ListManga extends Component {
                         <Row>
                             <Col><h4>Score:{this.props.manga.score}</h4></Col>
                             <Col><h4>Date Start: {this.props.manga.date_start}</h4></Col>
-                            <Col><h4>Date Start: {this.props.manga.date_end}</h4></Col>
+                            <Col><h4>Date End: {this.props.manga.date_end}</h4></Col>
                         </Row>
                         <h5>{this.props.manga.synopsis}</h5>
 
-                        
-                        <button>Remove Manga</button>
+                        <button onClick={() => this.props.patchManga(this.props.manga)}>Remove Manga</button>
                         {this.renderButton(this.props.manga)}
+
+
+                        
                         
                         <Route path={`/your_list/${this.props.manga.id}`} render={(routerProps) => <ReviewForm {...routerProps} manga={this.props.manga} />}/>
                         <Route path={`/your_list/${this.props.manga.id}/edit`} render={(routerProps) => <ReviewForm {...routerProps} manga={this.props.manga} />}/>
