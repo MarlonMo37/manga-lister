@@ -42,7 +42,7 @@ class ReviewForm extends Component {
                  <div>
                     {this.showReview()}
                     <form onSubmit={(e) => this.props.patchReview(e, this.state)}>
-                        <input type="textarea" value={this.state.reviewText.written_review} onChange={this.handleChange}/>
+                        <input type="textarea" value={this.state.reviewText} onChange={this.handleChange}/>
                         <input type="submit" value="Edit Review"/>
                     </form>
                 </div>
@@ -52,7 +52,7 @@ class ReviewForm extends Component {
                 <div>
                     {this.showReview()}
                     <form onSubmit={(e) => this.props.createReview(e, this.state)}>
-                            <input type="textarea" value={this.state.reviewText.written_review} onChange={this.handleChange}/>
+                            <input type="textarea" value={this.state.reviewText} onChange={this.handleChange}/>
                             <input type="submit" value="Submit Review"/>
                     </form>
                 </div>
